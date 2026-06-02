@@ -1,6 +1,6 @@
 # Projet-stage
 Projet du stage académique  
-les bibliotheques utilises:
+les bibliothèques utilisées:
 - baileys
 - google gemini sdk
 - pino
