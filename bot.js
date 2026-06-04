@@ -4,11 +4,11 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const pino = require('pino');
 
 // 1. PLACEZ VOTRE CLÉ API GEMINI DIRECTEMENT ICI ENTRÉ LES GUILLEMETS :
-const GEMINI_API_KEY = "AIzaSyBt8BKFxFqkma3RNt1QGhm19Rj5Px85yuQ";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 // Configuration de l'IA Gemini
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash", systemstruction: process.env.SYSTEM_PROMT });
 
 async function startBot() {
     // 2. Gestion de la session locale dans le dossier 'auth_info'
@@ -17,7 +17,7 @@ async function startBot() {
     const sock = makeWASocket({
         auth: state,
         logger: pino({ level: 'silent' }), // Désactive les logs système inutiles
-        printQRInTerminal: false 
+        printQRInTerminal: false
     });
 
     // 3. Gestion de la connexion WhatsApp
@@ -45,13 +45,13 @@ async function startBot() {
     // 4. Écoute et traitement des messages
     sock.ev.on('messages.upsert', async (m) => {
         const msg = m.messages[0];
-        
+
         if (!msg.message || msg.key.fromMe) return;
 
         const remoteJid = msg.key.remoteJid;
         const text = msg.message.conversation || msg.message.extendedTextMessage?.text;
 
-        if (!text) return; 
+        if (!text) return;
         console.log(`Message reçu : "${text}"`);
 
         try {
