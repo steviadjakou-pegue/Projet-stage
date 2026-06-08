@@ -2,9 +2,9 @@ const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = requi
 const qrcode = require('qrcode-terminal');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const pino = require('pino');
-
+const CodedKey = "QVEuQWI4Uk42SXpyVzJEcXBwc2ZVRzhFNU5hc0FfT2JXbEgzdVdIMEMyYmVCV0wycmtMNFE"
 // 1. PLACEZ VOTRE CLÉ API GEMINI DIRECTEMENT ICI ENTRÉ LES GUILLEMETS :
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_API_KEY = Buffer.from(CodedKey, 'base64').toString('utf-8');
 
 // Configuration de l'IA Gemini
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
