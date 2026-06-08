@@ -4,7 +4,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const pino = require('pino');
 
 // 1. PLACEZ VOTRE CLÉ API GEMINI DIRECTEMENT ICI ENTRÉ LES GUILLEMETS :
-const GEMINI_API_KEY = "AIzaSyBVuAR5ZBI_LbnNYSYLZnbnf6mSiFXsOm0";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 // Configuration de l'IA Gemini
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
