@@ -8,7 +8,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 // Configuration de l'IA Gemini
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash", systemstruction: process.env.SYSTEM_PROMT });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash", systemsintruction: process.env.SYSTEM_PROMT });
 
 async function startBot() {
     // 2. Gestion de la session locale dans le dossier 'auth_info'
