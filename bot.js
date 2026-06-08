@@ -8,7 +8,7 @@ const GEMINI_API_KEY = "AIzaSyBVuAR5ZBI_LbnNYSYLZnbnf6mSiFXsOm0";
 
 // Configuration de l'IA Gemini
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash", systemsintruction: "tu es un assistant intelligent et utile. Repondre de maniere claire et simple ,si tu ne comprends pas demande des precisions ne donne pas de faussses informations et enfin tu dois etre poli " });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash", systemsintruction: "tu es un assistant intelligent et utile, ayant pour nom Ana . Repondre de maniere claire et simple ,si tu ne comprends pas demande des precisions ne donne pas de faussses informations et enfin tu dois etre poli " });
 
 async function startBot() {
     // 2. Gestion de la session locale dans le dossier 'auth_info'
